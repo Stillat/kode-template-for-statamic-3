@@ -1,0 +1,26 @@
+<div class="flex-1 pr-6">
+    <div class="p-4 font-mono text-slate-400 text-right">
+        <h1 class="text-2xl mb-1 text-white">
+            <a href="{{ homepage }}" class="flex justify-end items-center">
+                {{ svg src="svg/logo" class="w-6 h-6 fill-white mr-2" /}}
+                {{ site_settings:site_name }}
+            </a>
+        </h1>
+        {{ unless site_settings:author_blurb | is_empty }}
+            <p class="mb-4 text-sm">{{ site_settings:author_blurb }}</p>
+        {{ /unless }}
+
+        <ul class="list-none">
+            {{ nav:main }}
+                <li class="my-2"><a href="{{ url }}" class="hover:text-gray-200 hover:underline">{{ title }}</a></li>
+            {{ /nav:main }}
+        </ul>
+    </div>
+</div>
+<div class="flex p-4 items-center justify-end">
+    {{ site_settings:social_media_profiles }}
+        <a href="{{ social_media_profile_url }}" class="mr-4 text-gray-500" rel="nofollow" title="{{ social_media_display_name }}">
+            {{ svg :src="social_media_icon" class="w-6 h-6" /}}
+        </a>
+    {{ /site_settings:social_media_profiles }}
+</div>

@@ -1,0 +1,11 @@
+<div class="bg-white pb-10 max-w-prose">
+    {{ collection:blog limit="5" sort="date:desc" as="posts" }}
+        {{ partial:components/blog/list /}}
+    {{ /collection:blog }}
+
+    <div class="flex justify-center items-center max-w-prose">
+        <a href="{{ link to='/blog' /}}" class="bg-slate-700 text-gray-100 hover:bg-gray-500 hover:text-gray-100 font-mono py-4 px-8">
+            {{ trans:site.view_all_posts /}}
+        </a>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+---
+active_class: 'bg-slate-700 text-gray-100 hover:bg-gray-500 hover:text-gray-100'
+inactive_class: 'bg-gray-100 hover:bg-gray-200 text-gray-800'
+prev_class: 'bg-gray-100 hover:bg-gray-200 font-semibold py-2 px-4 rounded-l'
+next_class: 'bg-gray-100 hover:bg-gray-200 font-semibold py-2 px-4 rounded-r'
+---
+<div class="flex items-center justify-center space-x-2 mt-6">
+    {{ if prev_page }}
+        <a href="{{ prev_page }}" class="{{ view:prev_class /}} text-gray-800">{{ trans:pagination.previous }}</a>
+    {{ else }}
+        <a aria-disabled="true" class="{{ view:prev_class /}} cursor-not-allowed text-gray-400">{{ trans:pagination.previous }}</a>
+    {{ /if }}
+
+    {{ links:segments }}
+        {{ first }}
+            <a href="{{ url }}" class="font-mono {{ (page == current_page) ? {view:active_class} : {view:inactive_class} }} font-semibold py-2 px-4">{{ page }}</a>
+        {{ /first }}
+
+        {{ if slider }}
+            <span aria-hidden="true" class="bg-gray-100 text-gray-800 font-mono font-semibold py-2 px-4">...</span>
+        {{ /if }}
+
+        {{ slider }}
+            <a href="{{ url }}" class="font-mono {{ (page == current_page) ? {view:active_class} : {view:inactive_class} }} font-semibold py-2 px-4">{{ page }}</a>
+        {{ /slider }}
+
+        {{ if slider || (!slider && last) }}
+            <span aria-hidden="true" class="bg-gray-100 text-gray-800 font-mono font-semibold py-2 px-4">...</span>
+        {{ /if }}
+
+        {{ last }}
+            <a href="{{ url }}" class="font-mono {{ (page == current_page) ? {view:active_class} : {view:inactive_class} }} font-semibold py-2 px-4">{{ page }}</a>
+        {{ /last }}
+    {{ /links:segments }}
+
+    {{ if next_page }}
+        <a href="{{ next_page }}" class="{{ view:next_class /}} text-gray-800">{{ trans:pagination.next }}</a>
+    {{ else }}
+        <a aria-disabled="true" class="{{ view:next_class /}} cursor-not-allowed text-gray-400">{{ trans:pagination.next }}</a>
+    {{ /if }}
+</div>
+
+{{#
+    Adds some extra META tags
+    based on the current
+    pagination details.
+#}}
+{{ section:meta_tags }}
+    <link rel="canonical" href="{{ current_url }}">
+
+    {{ if prev_page }}
+        <meta name="prev" content="{{ prev_page }}">
+    {{ /if }}
+
+    {{ if next_page }}
+        <meta name="next" content="{{ next_page }}">
+    {{ /if }}
+{{ /section:meta_tags }}

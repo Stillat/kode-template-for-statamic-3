@@ -1,0 +1,48 @@
+<div class="bg-white p-6 pb-10 max-w-prose">
+{{#
+    Utilizes our custom 'collection_archive'
+    tag to return our blog post archive.
+#}}
+{{ collection_archive:blog sort="date:desc" paginate="15" as="posts" }}
+    {{ unless no_results }}
+        <ul>
+            {{#
+                The first 'posts' array contains
+                each of the years for the
+                current archival page.
+            #}}
+            {{ posts }}
+                <li>
+                    <p class="font-bold">{{ year }}</p>
+                    <ul class="list-disc mt-3 ml-6">
+                        {{#
+                            The second 'posts' array contains
+                            each of the unique months for
+                            the current year loop.
+                        #}}
+                        {{ posts }}
+                            <li>
+                                <p class="font-bold font-sans">{{ month }}</p>
+                                <ul class="list-disc ml-6">
+                                    {{#
+                                        The final 'posts' arry contains
+                                        each of the individual entries.
+                                    #}}
+                                    {{ posts }}
+                                        <li class="mt-1"><a href="{{ url }}" class="font-mono hover:underline">{{ title }}</a></li>
+                                    {{ /posts }}
+                                </ul>
+                            </li>
+                        {{ /posts }}
+                    </ul>
+                </li>
+            {{ /posts }}
+        </ul>
+
+        {{# Render the pagination slider. #}}
+        {{ paginate }}
+            {{ partial:components/pagination/window /}}
+        {{ /paginate }}
+    {{ /unless }}
+{{ /collection_archive:blog }}
+</div>

@@ -1,0 +1,24 @@
+title: 'SEO Fields'
+fields:
+  -
+    handle: meta_description
+    field:
+      input_type: text
+      antlers: false
+      display: Description
+      type: text
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+  -
+    handle: meta_keywords
+    field:
+      input_type: text
+      antlers: false
+      display: Keywords
+      type: text
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible

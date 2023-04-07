@@ -1,0 +1,9 @@
+<div class="bg-white max-w-prose pb-10">
+{{ collection:blog sort="date:desc" paginate="5" as="posts" }}
+    {{ partial:components/blog/list /}}
+
+    {{ paginate }}
+        {{ partial:components/pagination/window /}}
+    {{ /paginate }}
+{{ /collection:blog }}
+</div>

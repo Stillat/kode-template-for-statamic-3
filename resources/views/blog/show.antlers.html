@@ -1,0 +1,49 @@
+<div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-2 gap-2 md:gap-4">
+    <div class="flex-col bg-white p-6 lg:col-span-2 xl:col-span-1 mb-4
+                prose
+                prose-pre:rounded-sm
+                prose-headings:font-mono
+                prose-headings:tracking-tight
+                prose-p:font-sans">
+        {{ content /}}
+    </div>
+    <div class="flex-col">
+        <div class="sticky top-0 pt-4" aria-hidden="true">
+            <div id="toc-wrapper" style="display:none;">
+                <h2 class="text-lg font-semibold">{{ trans:site.on_this_page }}</h2>
+                <div id="toc-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flex flex-col md:flex-row max-w-prose justify-between items-center mt-8 p-6 pb-10 pt-8 border-t-2 border-gray-300">
+    {{ collection:previous from="blog" limit="1" }}
+        {{ if no_results }}
+            {{#
+                If the 'collection:previous' tag
+                returned no results, we will
+                use another collection tag
+                to emulate a "wrap around".
+            #}}
+            {{ collection:blog sort="date:desc" limit="1" }}
+                {{ partial:components/blog/prev /}}
+            {{ /collection:blog }}
+        {{ else }}
+            {{ partial:components/blog/prev /}}
+        {{ /if }}
+    {{ /collection:previous }}
+    {{ collection:next from="blog" limit="1" as="inner_res" }}
+        {{ if no_results }}
+            {{#
+                Similar to the wrap around technique
+                used earlier, but in the opposite
+                direction.    
+            #}}
+            {{ collection:blog sort="date:asc" limit="1" }}
+                {{ partial:components/blog/next /}}
+            {{ /collection:blog }}
+        {{ else }}
+            {{ partial:components/blog/next /}}
+        {{ /if }}
+    {{ /collection:next }}
+</div>

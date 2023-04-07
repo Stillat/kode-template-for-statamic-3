@@ -1,0 +1,61 @@
+/* This is all you. */
+
+
+div.mermaid {
+    padding-top: 0.8571429em;
+    padding-right: 1.1428571em;
+    padding-bottom: 0.8571429em;
+    padding-left: 1.1428571em;
+    margin-top: 1.7142857em;
+    margin-bottom: 1.7142857em;
+}
+
+div.mermaid svg {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heading-permalink {
+    color: #c3c3c4 !important;
+    text-decoration: none !important;
+    font-style: italic;
+    margin-right: 5px;
+}
+
+#toc-container ul {
+    list-style: none;
+    counter-reset: item;
+}
+
+#toc-container ul li {
+    margin-top: 0.5em;
+}
+
+#toc-container ul li:before {
+    content: counters(item, ".") " ";
+    counter-increment: item;
+}
+
+#toc-container ul ul:not(:first-child) {
+    margin-left: 1.2em;
+}
+
+#toc-container ul ul ul:not(:first-child) {
+    margin-left: 2em;
+}
+
+#toc-container li a.active {
+    font-weight: 500;
+}
+
+#svg-pattern {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 80vh;
+    width: 25%;
+    opacity: 0.3;
+    margin-bottom: -5vh;
+    margin-right: 25px;
+    z-index: -1;
+}

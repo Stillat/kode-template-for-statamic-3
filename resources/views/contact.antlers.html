@@ -1,0 +1,15 @@
+<div class="bg-white p-6 pb-10 max-w-prose">
+    <p>{{ content }}</p>
+
+    <div class="flex flex-col gap-4 mt-8">
+        {{ site_settings:social_media_profiles }}
+            <div class="flex flex-row items-center gap-2">
+                {{ svg :src="social_media_icon" class="w-8 h-8" /}}
+                <div class="flex flex-col">
+                    <span class="font-medium text-sm">{{ social_media_display_name }}</span>
+                    <a href="{{ social_media_profile_url }}" class="font-mono hover:underline text-gray-500 hover:text-gray-600 text-sm" rel="nofollow">{{ social_media_profile_url }}</a>
+                </div>
+            </div>
+        {{ /site_settings:social_media_profiles }}
+    </div>
+</div>

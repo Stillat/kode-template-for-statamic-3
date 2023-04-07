@@ -1,0 +1,21 @@
+<nav class="flex items-center justify-between bg-slate-900 text-white px-4 py-3 md:hidden">
+    <h1 class="text-lg font-mono">
+        <a href="{{ homepage }}" class="flex items-center">
+            {{ svg src="svg/logo" class="w-6 h-6 fill-white mr-2" /}}
+            {{ site_settings:site_name }}
+        </a>
+    </h1>
+    <button id="nav-toggle" type="button" class="md:hidden">
+        {{ svg src="svg/menu" class="h-6 w-6" /}}
+    </button>
+</nav>
+
+<div class="bg-slate-900 space-x-4 p-6 text-slate-400 hidden" id="responsive-nav">
+    <ul>
+        {{ nav:main }}
+        <li class="my-2">
+            <a href="{{ url }}" class="hover:text-gray-200 hover:underline">{{ title }}</a>
+        </li>
+        {{ /nav:main }}
+    </ul>
+</div>

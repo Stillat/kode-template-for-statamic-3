@@ -1,0 +1,20 @@
+title: 'Site Settings'
+data:
+  site_name: Kode
+  social_media_profiles:
+    -
+      id: lg2iykxo
+      social_media_icon: socialicons/twitter.svg
+      social_media_display_name: Twitter
+      social_media_profile_url: 'https://twitter.com'
+    -
+      id: lg2iyqiq
+      social_media_icon: socialicons/youtube.svg
+      social_media_display_name: YouTube
+      social_media_profile_url: 'https://youtube.com'
+    -
+      id: lg2iz0kj
+      social_media_icon: socialicons/github.svg
+      social_media_display_name: GitHub
+      social_media_profile_url: 'https://github.com'
+  author_blurb: 'Passionate developer creating elegant solutions.'

@@ -1,0 +1,23 @@
+<div class="p-4 max-w-prose">
+    <ul class="divide-y divide-gray-300">
+        {{ unless no_results }}
+            {{ posts }}
+                <li class="py-4">
+                    <h3 class="text-lg font-medium hover:underline">
+                        <a href="{{ url }}">{{ title }}</a>
+                    </h3>
+                    <p class="text-sm font-mono text-gray-500">
+                        {{#
+                            The 'LL' is a macro-format that will
+                            dynamically adjust based on locale.
+                        #}}
+                        {{ date | iso_format('LL') }}
+                    </p>
+                    <p class="mt-2 text-gray-600">
+                        {{ content | raw | safe_truncate(120, '...') }}
+                    </p>
+                </li>
+            {{ /posts }}
+        {{ /unless }}
+    </ul>
+</div>
